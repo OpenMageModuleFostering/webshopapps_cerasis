@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento Webshopapps Shipping Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * Cerasisfreight Shipping
+ *
+ * @category   Webshopapps
+ * @package    Webshopapps_Cerasisfreight
+ * @copyright  Copyright (c) 2010 Zowta Ltd (http://www.webshopapps.com)
+ * @license    http://www.webshopapps.com/license/license.txt - Commercial license
+ *
+-->
+<config>
+   <modules>
+        <Webshopapps_Cerasisfreight>
+          <version>0.0.1</version>
+           <depends>
+               <Mage_Shipping />
+               <Webshopapps_Wsafreightcommon />
+           </depends>
+    	</Webshopapps_Cerasisfreight>
+    </modules>
+ <global>
+    <models>
+      <cerasisfreight>
+        <class>Webshopapps_Cerasisfreight_Model</class>
+      </cerasisfreight>
+	  <cerasisfreight_shipping>
+			<class>Webshopapps_Cerasisfreight_Model</class>
+		</cerasisfreight_shipping>
+    </models>
+    <resources>
+      <cerasisfreight_setup>
+        <setup>
+          <module>Webshopapps_Cerasisfreight</module>
+          <class>Mage_Eav_Model_Entity_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </cerasisfreight_setup>
+    </resources>
+    <sales>
+	<shipping>
+	    <carriers>
+			<cerasisfreight>
+				<class>Webshopapps_Cerasisfreight_Model_Carrier_Cerasisfreight</class>
+			</cerasisfreight>
+	    </carriers>
+	</shipping>
+    </sales> 
+     <helpers>
+         <cerasisfreight>
+             <class>Webshopapps_Cerasisfreight_Helper</class>
+         </cerasisfreight>
+     </helpers> 
+  </global>
+   <frontend>
+        <translate>
+            <modules>
+                <Webshopapps_Cerasisfreight>
+                    <files>
+                        <default>Webshopapps_Cerasisfreight.csv</default>
+                    </files>
+                </Webshopapps_Cerasisfreight>
+            </modules>
+        </translate>
+    </frontend>
+      <adminhtml>
+        <translate>
+            <modules>
+                <Webshopapps_Cerasisfreight>
+                    <files>
+                        <default>Webshopapps_Cerasisfreight.csv</default>
+                    </files>
+                </Webshopapps_Cerasisfreight>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <carriers>
+            <cerasisfreight>
+                <password backend_model="adminhtml/system_config_backend_encrypted"/>
+                <access_key backend_model="adminhtml/system_config_backend_encrypted"/>
+                <active>0</active>
+                <serial backend_model="adminhtml/system_config_backend_encrypted" />
+                <sallowspecific>0</sallowspecific>
+                <model>cerasisfreight_shipping/carrier_cerasisfreight</model>
+                <title>Cerasisfreight</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <allowed_methods>PYLE,AACT,AGCE,ASAP,AXRN,AVRT,BEAV,BLLF,BEXT,CAPC,CTSQ,CGOR,CDNK,CENF,CTII,CHEE,CSKL,COAS,CMMS,CNWY,CTDS,DYLT,DAFG,DPHE,DHL,DHRN,DOUG,DTSB,ENCO,EXLA,FXNL,ARFW,FINE,FCAB,HMES,HOLL,HTMS,HOTA,HUSR,HVHT,JKTI,KEXP,LMTS,LKVL,LAXV,LETL,MVTL,MERC,MSXN,MIDW,MLXP,MTRG,MQDS,NMTF,NEBT,NEMF,NPME,OAKH,ODFL,PMLI,PATT,PITD,PRIC,RLCA,RETL,RDFS,RRVT,MLLR,RPMI,SAIA,SEFL,SMTL,STDF,TBST,TYAR,TQL5,TSDL,TSXW,USRD,UPGF,UPPN,USFB,CEXP,VIKN,VITR,WARD,WERN,WTVA,WWMF,XGSI,YFEE,RDWY,YFSY</allowed_methods>
+				<ship_once>0</ship_once>
+                <sandbox_mode>1</sandbox_mode>
+                <mode_xml>0</mode_xml>
+                <show_cheapest>0</show_cheapest>
+            </cerasisfreight>
+        </carriers>
+    </default>
+</config>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Webshopapps
+ * @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license
+ * @license    http://www.webshopapps.com/license/license.txt - Commercial license
+ */
+ -->
+ 
+<layout version="0.1.0">
+  
+  <!-- ORDERS -->
+  <adminhtml_sales_order_view>
+    <reference name="order_tab_info">
+       <action method="setTemplate">
+         <template>webshopapps/wsafreightcommon/sales/order/view/tab/info_container.phtml</template>
+       </action>
+       <block type="wsafreightcommon/adminhtml_sales_order_view_freightinfo" name="wsafreightcommon_info" template="webshopapps/wsafreightcommon/sales/order/view/wsafreightcommon_info.phtml"/>
+        <block type="adminhtml/sales_order_view_tab_info" name="order_info_orig" template="sales/order/view/tab/info.phtml">
+	   <block type="adminhtml/sales_order_view_messages" name="order_messages"></block>
+	   <block type="adminhtml/sales_order_view_info" name="order_info" template="sales/order/view/info.phtml"></block>
+	   <block type="adminhtml/sales_order_view_items" name="order_items" template="sales/order/view/items.phtml">
+	       <action method="addItemRender"><type>default</type><block>adminhtml/sales_order_view_items_renderer_default</block><template>sales/order/view/items/renderer/default.phtml</template></action>
+	       <action method="addColumnRender"><column>qty</column><block>adminhtml/sales_items_column_qty</block><template>sales/items/column/qty.phtml</template></action>
+	       <action method="addColumnRender"><column>name</column><block>adminhtml/sales_items_column_name</block><template>sales/items/column/name.phtml</template></action>
+	       <action method="addColumnRender"><column>name</column><block>adminhtml/sales_items_column_name_grouped</block><template>sales/items/column/name.phtml</template><type>grouped</type></action>
+	       <block type="core/text_list" name="order_item_extra_info" />
+	   </block>
+	   <block type="adminhtml/sales_order_payment" name="order_payment"/>
+	   <block type="adminhtml/sales_order_view_history" name="order_history" template="sales/order/view/history.phtml"></block>
+	   <block type="adminhtml/template" name="gift_options" template="sales/order/giftoptions.phtml">
+	       <block type="adminhtml/sales_order_view_giftmessage" name="order_giftmessage" template="sales/order/view/giftmessage.phtml"></block>
+	   </block>
+	   <block type="adminhtml/sales_order_totals" name="order_totals" template="sales/order/totals.phtml">
+	       <block type="adminhtml/sales_order_totals_tax" name="tax" template="sales/order/totals/tax.phtml" />
+           <block type="adminhtml/sales_order_totals_item" name="giftcardaccount" template="enterprise/giftcardaccount/sales/order/totals/giftcardaccount.phtml">
+               <action method="setBeforeCondition"><param>customerbalance</param></action>
+           </block>
+	   </block>
+	</block>
+    </reference> 
+  </adminhtml_sales_order_view>   
+  
+  
+  
+  
+  
+</layout>

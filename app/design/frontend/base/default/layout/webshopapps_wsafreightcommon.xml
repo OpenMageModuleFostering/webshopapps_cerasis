@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <checkout_onepage_index>
+        <reference name="checkout.onepage">
+                <block type="wsafreightcommon/onepage_shippingextra" name="wsafreightcommon.onepage.shippingextra" as="shippingextra" after="checkout.onepage.billing" template="webshopapps/wsafreightcommon/onepage/shippingextra.phtml"/>
+        </reference> 
+    </checkout_onepage_index>
+    
+        
+     <checkout_cart_index>
+        <reference name="checkout.cart">
+             	<block type="wsafreightcommon/checkout_cart_shipping" name="checkout.cart.shipping" as="shipping" template="webshopapps/wsafreightcommon/checkout/cart/shipping.phtml"/>
+        </reference>
+    </checkout_cart_index>  
+</layout>

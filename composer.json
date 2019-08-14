@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/WebShopApps_Cerasis",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Our Cerasis Freight extension retrieves freight rates via the Cerasis service",
+    "authors": [
+    {
+        "name": "Karen Baker",
+        "email": "sales@webshopapps.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
